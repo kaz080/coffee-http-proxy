@@ -107,9 +107,9 @@ class Server extends events.EventEmitter
       connection.once 'requested', =>
         @emit 'connection', connection
         connection.connect()
-    @server.on 'error', (error) -> @emit 'error', error
+    @server.on 'error', (error) => @emit 'error', error
   listen: (port, cb) ->
-    port ?= opts.port
+    port ?= @opts.port || 8000
     @server.listen port, cb
   close: ->
     @server.close()

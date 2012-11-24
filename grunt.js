@@ -1,11 +1,30 @@
+// For grunt 0.3.17
+// 0.4.x will use grunt.coffee
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-coffee');
   grunt.initConfig({
     lint: {
-      files: ["grunt.coffee", "lib/*.coffee", "tests/*.coffee"]
+      files: ["*.js", "lib/*.js"]
+    },
+    jshint: { // @see http://www.jshint.com/docs/
+      options: {
+        curly: false, // Always need {} for 'if' 'for' etc.
+        newcap: false, // for CoffeeScript generated 'new ctor()'
+        shadow: true, // for CoffeeScript generated class definition
+        undef: true, eqeqeq: true, immed: true, latedef: true,
+        noarg: true, sub: true, boss: true, eqnull: true,
+        node: true, strict: false
+      }
+    },
+    coffee: {
+      app: {
+        src: ["src/*.coffee"],
+        dest: "lib"
+      }
     },
     mochaTest: {
-      files: ["tests/*.coffee"]
+      files: ["test/*.coffee"]
     },
     mochaTestConfig: {
       options: {
@@ -14,24 +33,9 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ["grunt.js", "*.coffee", "lib/*.coffee", "tests/*.coffee"],
-      tasks: "mochaTest"
-    },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true
-      },
-      globals: {}
+      files: ["*.js", "*.coffee", "src/*.coffee", "test/*.coffee"],
+      tasks: "coffee mochaTest lint"
     }
   });
-  return grunt.registerTask("default", "mochaTest");
+  return grunt.registerTask("default", "coffee mochaTest");
 };

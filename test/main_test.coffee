@@ -17,6 +17,7 @@ describe 'Proxy', ->
   proxy = null
 
   before (done) ->
+    this.timeout 3000
     proxy = spawn 'coffee', ['main', '--port', 8888]
     proxy.on 'exit', ->
       #console.log 'Exit proxy'

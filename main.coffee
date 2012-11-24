@@ -35,9 +35,12 @@ server.on 'connection', (connection) ->
 server.listen argv.port, ->
   console.log 'Listening on port', argv.port
 
+# Handle errors.
 server.on 'error', (error) ->
-  console.log error.toString().red
+  console.log error.toString().yellow
+  process.exit 1
 
+# Handle exceptions.
 process.on 'uncaughtException', (error) ->
-  console.error error.stack.red
+  console.error (error.stack || error.toString()).red
   process.exit 1
