@@ -2,7 +2,7 @@ chai = require 'chai'
 expect = chai.expect
 chai.should()
 
-cp = require('child_process')
+cp = require 'child_process'
 spawn = cp.spawn
 exec = cp.exec
 buffer = require 'buffer'
@@ -18,7 +18,7 @@ describe 'Proxy', ->
 
   before (done) ->
     this.timeout 3000
-    proxy = spawn 'coffee', ['main', '--port', 8888]
+    proxy = spawn 'coffee', ['lib/simple-proxy', '--port', 8888]
     proxy.on 'exit', ->
       #console.log 'Exit proxy'
     out = proxy.stdout

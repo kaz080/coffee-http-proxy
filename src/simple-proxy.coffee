@@ -1,13 +1,13 @@
 colors = require 'colors'
 argv = require('optimist')
-  .usage('Usage: coffee proxy')
+  .usage('Usage: coffee simple-proxy')
   .default({
     'proxy': process.env.HTTP_PROXY,
     'port': 8180
   })
   .argv
-proxy = require './lib/proxy'
-logger = require './lib/logger'
+proxy = require '../lib/proxy'
+logger = require '../lib/logger'
 
 server = proxy.createServer argv
 

@@ -3,7 +3,7 @@ chai.should()
 expect = chai.expect
 sinon = require 'sinon'
 sinonChai = require 'sinon-chai'
-chai.use(sinonChai)
+chai.use sinonChai
 
 logger = require '../lib/logger'
 buffer = require 'buffer'

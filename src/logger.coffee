@@ -13,11 +13,11 @@ class Logger extends stream.Stream
   constructor: (@format = '>', @encoding = 'utf8', @writer = console.log) ->
     @writable = true
   log: (data) ->
-  	if typeof @format != 'function'
+    if typeof @format != 'function'
       format = @format
     else
-  	  format = @format()
-  	@writer format, data
+      format = @format()
+    @writer format, data
   write: (chunk, encoding) ->
     if typeof chunk == 'string'
       @log line for line in chunk.split(LF)

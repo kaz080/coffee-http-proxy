@@ -1,10 +1,15 @@
 {
-  "name": "proxy",
+  "name": "coffee-http-proxy",
   "version": "0.0.1",
-  "description": "HTTP proxy server",
-  "main": "main.js",
-  "directories": {
-    "test": "test"
+  "author": "kaz080",
+  "description": "Simple HTTP proxy server module",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaz080/coffee-http-proxy.git"
+  },
+  "main": "./lib/proxy.js",
+  "scripts": {
+    "test": "grunt"
   },
   "dependencies": {
     "colors": "~0.6.0-1",
@@ -18,12 +23,5 @@
     "sinon": "~1.5.0"
     "grunt-mocha-test": "~0.0.1",
     "grunt-coffee": "~0.0.6",
-  },
-  "scripts": {
-    "test": "grunt"
-  },
-  "repository": "",
-  "author": "kaz080",
-  "license": "BSD",
-  "readmeFilename": "README.md"
+  }
 }

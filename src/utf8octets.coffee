@@ -1,4 +1,3 @@
-stream = require 'stream'
 buffer = require 'buffer'
 
 createUTF8TypeMap = ->
