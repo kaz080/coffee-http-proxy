@@ -18,7 +18,7 @@ describe 'Proxy', ->
 
   before (done) ->
     this.timeout 3000
-    proxy = spawn 'coffee', ['lib/simple-proxy', '--port', 8888]
+    proxy = spawn 'node', ['lib/simple-proxy', '--port', 8888]
     proxy.on 'exit', ->
       #console.log 'Exit proxy'
     out = proxy.stdout
