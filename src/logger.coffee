@@ -7,7 +7,7 @@ CRLF = '\r\n'
 
 # Filter for logging
 # @param format is the 1st param for console.log such as '>', '[%s]'
-# @param encoding 'binary' 'utf-8'
+# @param encoding 'binary' 'utf8' 'utf8+binary'
 # @param writer instead of console.log
 class Logger extends stream.Stream
   constructor: (@format = '>', @encoding = 'utf8', @writer = console.log) ->
@@ -25,7 +25,6 @@ class Logger extends stream.Stream
       utf8length = utf8octets(chunk)
       if (utf8length)
         @log line for line in chunk.toString('utf8', 0, utf8length).split(LF)
-      @log chunk.slice(utf8length)
     else
       @log chunk
     @emit 'data', chunk

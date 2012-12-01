@@ -32,15 +32,15 @@ describe 'Logger', ->
     it "should not write to console.log", ->
       log.should.have.property('writer').not.equal console.log
 
-    it "should split binary into string and buffer", ->
+    it "should write only valid utf8 string", ->
       log.write new Buffer [0x61, 0x62, 0x63, 0xD0, 0x41, 0x42]
       log.end()
       listener.should.have.been.calledOn log
       listener.getCall(0).args[0].should.be.a 'object'
       writer.getCall(0).args[0].should.eql '>'
       writer.getCall(0).args[1].should.be.a('string').eql 'abc'
-      writer.getCall(1).args[0].should.eql '>'
-      writer.getCall(1).args[1].should.instanceOf(buffer.Buffer).with.length(3)
+      #writer.getCall(1).args[0].should.eql '>'
+      #writer.getCall(1).args[1].should.instanceOf(buffer.Buffer).with.length(3)
 
     it "should write string", ->
       log.write 'test'
