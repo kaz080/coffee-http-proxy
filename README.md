@@ -42,10 +42,10 @@ server.listen(8000, function() {
 To start proxy server,
 
 ```bash
-proxy [--port 8000] [--proxy host:port] [--verbose]
+./node_modules/.bin/proxy [--port 8000] [--proxy host:port] [--verbose]
 ```
 
-For more detail, see `src/simple-proxy.coffee`.
+For detail, see `src/simple-proxy.coffee`.
 
 ## Install
 
