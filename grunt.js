@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-coffee');
   grunt.initConfig({
     lint: {
-      files: ["*.js", "*.json", "lib/*.js"]
+      files: ["*.js", "*.json", "lib/*.js", "bin/*"]
     },
     jshint: { // @see http://www.jshint.com/docs/
       options: {
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ["*.js", "*.json", "src/*.coffee", "test/*.coffee"],
+      files: ["*.js", "*.json", "src/*.coffee", "test/*.coffee", "bin/*"],
       tasks: "coffee mochaTest lint"
     }
   });

@@ -53,13 +53,13 @@ For detail, see `src/simple-proxy.coffee`.
 npm install coffee-http-proxy
 ```
 
-# Development Environment
+## Development Environment
 
-In the module directory,
-
-- Install [grunt.js](https://github.com/gruntjs/grunt):
+- Go to module directory:
+  `cd node_modules/coffee-http-proxy`
+- Install [grunt.js](https://github.com/gruntjs/grunt) in global:
   `npm install -g grunt`
-- Install development dependencies:
+- Install development dependencies locally:
   `npm install --dev`
 - Build and test:
   `grunt`
