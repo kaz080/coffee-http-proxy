@@ -1,5 +1,7 @@
 # CoffeeScript HTTP Proxy
 
+[![CircleCI build status][ico-circle]][circle]
+
 Simple HTTP proxy server module.
 
 The proxy module supports:
@@ -65,3 +67,6 @@ npm install coffee-http-proxy
   `grunt`
 - Start watching code editing:
   `grunt watch`
+
+[ico-circle]: https://circleci.com/gh/kaz080/coffee-http-proxy.png?circle-token=:circle-token
+[circle]: https://circleci.com/gh/kaz080/coffee-http-proxy
