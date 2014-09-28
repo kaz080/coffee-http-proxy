@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     },
     mochaTestConfig: {
       options: {
-        reporter: 'nyan',
+        reporter: 'spec',
         compilers: 'coffee:coffee-script'
       }
     },
